@@ -1,0 +1,7 @@
+10/8/23 Meeting
+
+Met with design to discuss how new features such as player status effects, new special complete archetypes, and new enemy attacks will work.
+Also helped discuss with programmer colleagues on shifting enemy attack focus to a scriptable object design, where we can create a template
+that we create from Assets menu to fill in the attack data, which battle can call when attacking.
+
+Meeting: 2 Hours
