@@ -17,8 +17,10 @@
     I realized I could borrow that same concept when creating the Special Complete Conditions: A base SpecialCompleteClass, with each child class fulfilling the
     Special Complete archetype as they're provided by design.
 
+    <img = src="Images/SpecialCompleteCondition (1).png" alt="SpecialCompleteCondition Script">
+    <img = src="Images/TotalStatusEffectComplete (1).png" alt="TotalStatusEffectComplete Script">
+
     [Planning: 2 hours]
-    (Add Ray.so embeds)
 </p>
 
 <h3>Initial Implementation</h3>
@@ -26,8 +28,11 @@
     Adding in the base class was simple at first, as I only needed a SpecialComplete class for EventBus emitting, and an Awake function to add any relevant subscriptions
     or other preperatory variables. I also added an event publisher in battle which sends out the current enemy status for the Special Complete. This will likely be
     useful for when we apply other effects or check on the duration of status effects on enemies.
+
+    <img = src="Images/BattleController.png" alt="BattleController StatusEmitter Additions">
+    <img = src="Images/EnemyProfile (1).png" alt="EnemyProfile StatusEffect-SpecialCompleteCondition Additions">
+
     [Implementation: 4 hours]
-    (Add Ray.so embeds)
 </p>
 
 <h3>Integration Planning</h3>
@@ -35,6 +40,7 @@
     While last week had the implementation, it still needed to be integrated and tested. In order for Total Status Effect Complete to be tested, I needed both the Calm Skill
     as well as the Calm Status to test, which was not completely implemented at time of implementation. So that was my duty for the second week. Meeting with fellow leads also
     helped with me planning on how to handle it. Simply use the subscription to check teh enemy and status effect; if they match, increment and check if the complete fires. Simple.
+
     [Planning: 2 hours]
 </p>
 
@@ -43,14 +49,20 @@
     Except when testing, the special complete wouldn't increment the status. At first I was confused and assumed I needed to create a new Unity Event. However, double
     checking with breakpoints in the debugger, I noticed that the issue was with the Awake function not being called. Then I realized I created an Awake function that won't ever be
     called. I swapped over to an Initialize function just like the Achievement class. Fixed the problem and learned how to handle objects like these.
+
+    <img = src="Images/SpecialCompleteCondition (2).png" alt="SpecialCompleteCondition Script Fix">
+    <img = src="Images/TotalStatusEffectComplete (2).png" alt="TotalStatusEffectComplete Script Fix">
+
+    <img = src="Images/EnemyProfile (2).png" alt="EnemyProfile StatusEffect-SpecialCompleteCondition Fix">
+
     [Testing: 3.5 hours]
-    (Add Ray.so embeds)
 </p>
 
 <h3>Successful Integration</h3>
 <p>
     Once I figured out the issue with SpecialCompleteCondition subscriptions, testing that the special complete works was simple, as well as publishing an Event for
     SpecialComplete so that dialogue can do their thing when an encounter ends.
+
     [Integration: 0.5 hours]
 </p>
 
