@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Project Quest Dev Blog</h1>
+<p>Jose-Andres Franco, QA Programmer</p>
+<p><a href = "https://joseandr1019.github.io">Home</a></p>
+<p><a href = "https://joseandr1019.github.io/Sprint_Updates/sprint_1">Prev Sprint</a></p>
+
+<h2>Sprint 2, Alpha, Feature Locking in Progress</h2>
+<p>
+    The second sprint had me working further on implementing status effects for use for the player, enemies,
+    player attacks, and enemy attacks.
+</p>
+
+<h3>Sprint 2.1 Meeting</h3>
+<p>
+    Met with design to discuss this sprint's plans to include new status effects, special complete archetypes,
+    and status handling for player and enemies. Also met with programming to discuss the division of labor between us.
+    <br>
+    [Meeting: 2 hours]
+</p>
+
+<h3>Initial Player Status Handler Implementation</h3>
+<p>
+    This week I started working on creating a player profile so that enemies can inflict status effects on the player. 
+    This change also added to EnemyAttacks the ability to inflict status effects, status effects to be inflicted regardless of target,
+    and a change in calm to affect attack power instead of attack chance.
+    <br>
+    <img = src="Images/Calm Status Effect Change (1).png" alt="Calm Status Application fix" witdh="300" height="400">
+    <img = src="Images/Calm Status Effect Change (2).png" alt="Calm Status Removal Fix" witdh="450" height="300">
+    <br>
+    <img = src="Images/Enemy Attack Status Affliction Change.png" alt="Applying Effects when Enemy Attack hits" witdh="500" height="400">
+    <br>
+    <img = src="Images/Player Profile.png" alt="Player Profile for status handling" witdh="400" height="400">
+    <img = src="Images/Status Affliction Handling.png" alt="Player Profile Status Application" witdh="300" height="300">
+    <br>
+    [Implementation: 2 hours]
+</p>
+
+<h3>Sprint 2.2 Meeting</h3>
+<p>
+    This meeting I met with encounter to discuss the beginning of feature locking.
+    Programming assigned me to assist with the foundational code base for combat.
+    <br>
+    [Meeting: 2 hours]
+</p>
+
+<h3>Status Handler Meeting</h3>
+<p>
+    I had a sub meeting with my QA lead to discuss how status effects should work going forward to establish
+    a base template for other programmers to work with.
+    <br>
+    [Sub-Meeting: 0.5 hours]
+</p>
+
+<h3>Partial Status Handler Implementation</h3>
+<p>
+    I worked on updating the status handlers to handle special Field Effects like Siphon Essence,
+    as well as handling what happens when conflicting status effects like Calm and Riled occur.
+    This also involved looking at the new, existing status handler and looking at the design pages
+    of status effects to see what would need to be changed and added.
+    <br>
+    <img = src="Images/Affliction Cancellation.png" alt="Affliction Cancellation check" witdh="450" height="250">
+    <br>
+    <img = src="Images/Field Effect.png" alt="Field Effect Base Script" witdh="300" height="250">
+    <br>
+    <img = src="Images/Siphon Essence.png" alt="Siphon Essence field Effect" witdh="500" height="600">
+    <br>
+    <img = src="Images/Field Effect Application.png" alt="Applying field effect to Status Handlers" witdh="450" height="300">
+    <img = src="Images/Field Effect Handling.png" alt="Handling field effects in Status Handlers" witdh="450" height="300">
+    <br>
+    <img = src="Images/Status Effect Enum change.png" alt="Status Effect Enum Names" witdh="450" height="300">
+    <br>
+    [Implementation: 5.5 hours]
+    [Total: 12 hours]
+</p>
+
+</body>
+</html>
