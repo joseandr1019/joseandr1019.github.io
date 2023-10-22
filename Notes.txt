@@ -5,3 +5,28 @@ Also helped discuss with programmer colleagues on shifting enemy attack focus to
 that we create from Assets menu to fill in the attack data, which battle can call when attacking.
 
 Meeting: 2 Hours
+
+Added the initial framework for the player to be aflicted with Status Effects.
+Reworked Calm to affect attack power, not attack chance
+Altered Status Effects to be able to apply effects differently depending on who the target is.
+Altered Enemy Attacks to be able to apply Status Effects
+Added a Player Profile to handle status effects.
+
+Implementation: 2 Hours
+
+Met with encounter squad to discuss the new designs and things that need to be adjusted/added this week.
+Met with programming to discuss this week's tasks. Assigned to aid in finishing the foundational code base for combat.
+
+Meeting: 2 Hours
+
+Met with my QA Lead to discuss how we're going to implement the chnages needed to handle and future proof the code.
+
+Sub Meeting: 1/2 Hour
+
+Partial Status Effect Implementation
+
+Time Working: 3 Hours
+
+Status Handler Finish
+
+Time Working: 2.5 Hours
