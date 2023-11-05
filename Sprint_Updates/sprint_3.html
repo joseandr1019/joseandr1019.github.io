@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Project Quest Dev Blog</h1>
+<p>Jose-Andres Franco, QA Programmer</p>
+<p><a href = "https://joseandr1019.github.io">Home</a></p>
+<p><a href = "https://joseandr1019.github.io/Sprint_Updates/sprint_2">Prev Sprint</a></p>
+
+<h2>Sprint 2.3</h2>
+<p>
+    The week of Sprint 2.3 (10/22 - 10/28), design sat us down and told us that we wanted a finished build that works for the designs
+    presented up to now. This was to include the enemies presented, their attacks, the attacks’ status effects, their special complete
+    objectives, and the player action minigames. My goal for the week was to have the status effects that the player and enemy attacks
+    inflict fully working.
+</p>
+
+<h3>Status Effect 90% Implementation</h3>
+<p>
+    My list of status effects to implement were Calm (player & enemy), Rile Up (enemy), Dissuade (enemy), Poison (player), and the special
+    effect Siphon Essence (player). Rile Up and Poison were already implemented by someone else working on enemy attacks, so I tackled the
+    other three. Calm & Rile Up didn’t need changing but a conditional was needed when applying so that the two effects cancel each other
+    rather than creating a new unadjusted value. Dissuade was a trickier one (how do I track the recent action and sealed action?), but I
+    decided to have the status handlers do some of the work. When an enemy uses an attack, the player status handler will save it. When the
+    player uses the action ‘Convince’, when inflicting Dissuade, it will call upon Dissuade’s constructor* which will take the save the
+    recent action saved by the player and seal it in the enemy’s status handler. Siphon Essence was another trickier one (how do I keep track
+    of the victim and siphoner to deal damage and heal?), and I decided to use another constructor*. When the enemy inflicts Siphon Essence,
+    the effect will track the inflicter’s HealthSystem and the victim’s HealthSystem and handle the effect when the EndOfRound event is
+    published. This took me about 3½ hours over a Sunday evening (10/22) and a Monday Night (10/23)
+    <br><br>
+    * - Hindsight’s a prick and it was a flawed and more complicated solution to use a constructor for these effects, as I would find out
+    the next day.
+    <br>
+    [Implementation: 3.5 hours]
+</p>
+
+<h3>Status Effect Simplicity Change</h3>
+<p>
+    Constructors were a bad idea, and there’s a simpler solution for both Dissuade and Siphon Essence. I had a suspicion that constructors
+    were improper but couldn’t think of why at the moment, so I asked a couple other programmers to look at it and help rubber duck debug.
+    Dissuade can be much simpler by having the enemy status handler track the recent action used, then when Dissuade is inflicted, seal the
+    currently saved recent attack. With Siphon Essence, I relied on the fact that the project has certain restrictions to make this simpler.
+    There is only ever one enemy in battle, and the lone player. If Siphon Essence is active on the player, I can handle Siphon Essence
+    directly in the battle controller at the end of round. I recognize that this won’t work on bigger scale project, but for now this
+    solution works for the project limitations without creating something even more needlessly complicated. This took me about an hour
+    Tuesday evening during a meeting with other Quest programmers.
+    <br><br>
+    I also discovered two new bugs, one from my forgetting to do null checking (I also learned the null conditional operator is a thing), and
+    a really bad bug that the player is not the player.
+    <br>
+    [Implementation Fix: 1 hour]
+</p>
+
+<h3>The Player Icon bug</h3>
+<p>
+    The player in the battle controller is supposed to be the player object which contains the player’s Health System and Status Handler.
+    However, while debugging the null condition issue above, I found that the player in the Battle Controller has neither, as it’s the
+    player’s Battle Icon.
+    <br><br>
+    <img = src="Images/Player in Battle.png" alt="The debugger in Battle Controller, showing all of the components of ‘Player’, revealing
+    it’s the ‘Player Battle Icon’ object instead of the player proper." witdh="600" height="600">
+    <br><br>
+    I did not have the proper knowledge of Battle Controller to fix this, so I decided to make it known to those who did so they can fix
+    this as I believe my trying to fix it would only lead to more damage.
+    <br><br>
+    However, considering the time constraint, I decided to take a crack at it first, and all it needed was adding a couple components to
+    the player icon to work. This took about an hour and a half Friday evening to implement and test.
+    <br>
+    [Icon Fix: 1.5 hours]
+</p>
+
+<h2>Sprint 3.1</h2>
+
+<h3>Work Session</h3>
+<p>
+    During the work session Friday evening I added in the remaining status effects and added in a couple special complete objectives.
+    Not much was needed to be added on my end initially. A few more events and that was part of my session. I did learn however that I’m
+    the creator of bugs as Unity Objects do not support a null conditional operator. At least I learned that Unity Objects don’t have one
+    but it exists in other languages. Worked for about 3 hours.
+    <br>
+    [Implementation: 3 hours]
+</p>
+
+<h3>End of Week Wrap Up</h3>
+<p>
+    I wanted to see where minigames were dealing damage and found that they don’t. So I worked on creating my own function for dealing damage.
+    Added a new field for minigames for how much damage they deal, adjusted the player status handler to have a multiplier for damage which is
+    adjusted by Calm. Took about four hours searching for an existing function, creating the function, and resolving merge conflicts.
+    <br>
+    [Fixing: 4 hours]
+    <br>
+    [Total: 13 hours]
+</p>
+</body>
+</html>
